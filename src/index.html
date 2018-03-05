@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Название проекта</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="page">
+  <div class="page__promo-wrapper"> <!-- Для IE 11 https://github.com/philipwalton/flexbugs#flexbug-3 -->
+    <section class="promo">
+      <div class="promo__content">
+        <header class="promo__header">
+          <h2 class="promo__title">Ты сегодня покормил кота?</h2>
+        </header>
+
+        <div class="promo__products-wrapper">
+          <article class="product promo__product">
+            <div class="product__content-wrapper">
+              <div class="product__content">
+                <p class="product__desc" data-text>Сказочное заморское яство</p>
+
+                <h1 class="product__title">Нямушка</h1>
+                <p class="product__type">с фуа-гра</p>
+
+                <p class="product__text"><span class="product__number">10</span> порций</p>
+                <p class="product__text">мышь в подарок</p>
+              </div>
+
+              <div class="product__weight">
+                <span class="product__weight-number">0,5</span>
+                <span class="product__weight-unit">кг</span>
+              </div>
+            </div>
+
+            <p class="product__action" data-text="Печень утки разварная с артишоками.">Чего сидишь? Порадуй котэ, <a class="product__link" href="#">купи.</a></p>
+          </article>
+
+          <article class="product promo__product">
+            <div class="product__content-wrapper">
+              <div class="product__content">
+                <p class="product__desc" data-text>Сказочное заморское яство</p>
+
+                <h1 class="product__title">Нямушка</h1>
+                <p class="product__type">с рыбой</p>
+
+                <p class="product__text"><span class="product__number">40</span> порций</p>
+                <p class="product__text"><span class="product__number">2</span> мыши в подарок</p>
+              </div>
+
+              <div class="product__weight">
+                <span class="product__weight-number">2</span>
+                <span class="product__weight-unit">кг</span>
+              </div>
+            </div>
+
+            <p class="product__action" data-text="Головы щучьи с чесноком да свежайшая сёмгушка.">Чего сидишь? Порадуй котэ, <a class="product__link" href="#">купи.</a></p>
+          </article>
+
+          <article class="product promo__product product--disabled">
+            <div class="product__content-wrapper">
+              <div class="product__content">
+                <p class="product__desc" data-text>Сказочное заморское яство</p>
+
+                <h1 class="product__title">Нямушка</h1>
+                <p class="product__type">с курой</p>
+
+                <p class="product__text"><span class="product__number">100</span> порций</p>
+                <p class="product__text"><span class="product__number">5</span> мышей в подарок</p>
+                <p class="product__text">заказчик доволен</p>
+              </div>
+
+              <div class="product__weight">
+                <span class="product__weight-number">5</span>
+                <span class="product__weight-unit">кг</span>
+              </div>
+            </div>
+
+            <p class="product__action" data-text="Филе из цыплят с трюфелями в бульоне.">Чего сидишь? Порадуй котэ, <a class="product__link" href="#">купи.</a></p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

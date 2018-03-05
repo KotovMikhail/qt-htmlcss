@@ -1,0 +1,145 @@
+.product {
+  width: 300px;
+  color: @font-color-card;
+
+  @media @mobile-s {
+    width: 320px;
+  }
+}
+
+.product__content-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 10px;
+  background-image: linear-gradient(135deg, transparent 33px, @border-color-card 0);
+}
+
+.product--selected .product__content-wrapper {
+  background-image: linear-gradient(135deg, transparent 33px, @border-color-card--selected 0);
+}
+
+.product--disabled .product__content-wrapper {
+  color: fade(@border-color-card--disabled, 50%);
+  background-image: linear-gradient(135deg, transparent 33px, @border-color-card--disabled 0);
+}
+
+.product--selected-hover .product__content-wrapper {
+  background-image: linear-gradient(135deg, transparent 33px, @border-color-card--selected-hover 0);
+}
+
+.product__content {
+  padding: 20px 30px 20px 44px;
+  min-height: 432px;
+  border-radius: 8px;
+  background-image: url("../img/bg-cat.png"), linear-gradient(135deg, transparent 31px, @bg-color-card 0);
+  background-repeat: no-repeat;
+  background-position: -28px ~"calc(100% + 93px)", 0 0;
+}
+
+.product--disabled .product__content {
+  background-image: url("../img/bg-cat-disabled.png"), linear-gradient(135deg, transparent 31px, @bg-color-card 0);
+}
+
+.product__desc {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.product--selected-hover .product__desc {
+  color: @font-color-base--hover;
+}
+
+.product__title {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  color: @font-color-heading;
+}
+
+.product__type {
+  margin-top: 0;
+  margin-bottom: 17px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  color: @font-color-heading;
+}
+
+.product__text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product__number {
+  font-weight: 700;
+  color: @font-color-heading;
+}
+
+.product--disabled .product__title,
+.product--disabled .product__type,
+.product--disabled .product__number {
+  color: fade(@border-color-card--disabled, 50%);
+}
+
+.product__weight {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  right: 15px;
+  bottom: 15px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: @font-color-base;
+  background-color: @border-color-card;
+}
+
+.product--selected .product__weight {
+  background-color: @border-color-card--selected;
+}
+
+.product--disabled .product__weight {
+  background-color: @border-color-card--disabled;
+}
+
+.product--selected-hover .product__weight {
+  background-color: @border-color-card--selected-hover;
+}
+
+.product__weight-number {
+  font-size: 42px;
+  line-height: 42px;
+}
+
+.product__weight-unit {
+  font-size: 21px;
+}
+
+.product__action {
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 16px;
+  color: @font-color-base;
+  text-align: center;
+}
+
+.product--disabled .product__action {
+  color: @font-color-base--disabled;
+}
+
+.product__link {
+  font-weight: 700;
+  color: @border-color-card;
+  text-decoration: none;
+  border-bottom: 1px dashed @border-color-card;
+}
