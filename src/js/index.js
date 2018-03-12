@@ -37,9 +37,6 @@
         var elemProductAction = parentElem.querySelector('.' + PRODUCT_ACTION_CLS);
         var elemProductDesc = parentElem.querySelector('.' + PRODUCT_DESC_CLS);
         var content = elemProductAction.innerHTML;
-        console.log(elem);
-        console.log(parentElem);
-
 
         elemProductAction.innerHTML = elemProductAction.dataset.text;
         elemProductAction.dataset.text = content;
