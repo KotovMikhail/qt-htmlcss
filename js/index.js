@@ -1,56 +1,32 @@
-'use strict';
+"use strict";
 
-(function () {
-  var PRODUCT_CLS = 'product';
-  var PRODUCT_SELECTED_CLS = 'product--selected';
-  var PRODUCT_SELECTED_HVR_CLS = 'product--selected-hover';
-  var PRODUCT_DISABLED_CLS = 'product--disabled';
-  var PRODUCT_ACTION_CLS = 'product__action';
-  var PRODUCT_DESC_CLS = 'product__desc';
-  var PRODUCT_DESC_TEXT = 'Котэ не одобряет?';
-  var PRODUCT_DISABLED_TEXT = 'Печалька, с курой закончился.';
+(function() {
+  var PRODUCT = 'product';
+  var PRODUCT_WRAPPER = 'promo__products-wrapper';
+  var PRODUCT_SELECTED = 'product--selected';
+  var PRODUCT_SELECTED_HVR = 'product--selected-hover';
+  var PRODUCT_DISABLED = 'product--disabled';
+  var PRODUCT_ACTION = 'product__text--action';
+  var PRODUCT_CONSIST = 'product__text--consist';
 
-  var blockPromo = document.querySelector('.promo__products-wrapper');
-  var blockProduct = document.querySelectorAll('.' + PRODUCT_CLS);
-
-  for (var i = 0; i < blockProduct.length; i++) {
-    if (blockProduct[i].classList.contains(PRODUCT_DISABLED_CLS)) {
-      blockProduct[i].querySelector('.' + PRODUCT_ACTION_CLS).textContent = PRODUCT_DISABLED_TEXT;
-    }
-  }
+  var blockPromo = document.querySelector('.' + PRODUCT_WRAPPER);
+  var blockProduct = document.querySelectorAll('.' + PRODUCT);
 
   if (blockPromo) {
-    blockPromo.addEventListener('click', elementSelect, false);
-    blockPromo.addEventListener('mouseover', elementMouseOver, false);
-    blockPromo.addEventListener('mouseout', elementMouseOut, false);
+    blockPromo.addEventListener("click", elementMouseClick);
+    blockPromo.addEventListener("mouseover", elementMouseOver);
+    blockPromo.addEventListener("mouseout", elementMouseOut);
   }
 
-  function elementSelect(event) {
+  function elementMouseClick(event) {
     var elem = event.target;
 
-    if (elem !== this && !elem.classList.contains(PRODUCT_ACTION_CLS)) {
-      event.preventDefault();
+    if (!elem.classList.contains(PRODUCT_ACTION) && !elem.classList.contains(PRODUCT_CONSIST)) {
+      var parentElem = findParentElement(elem, PRODUCT);
 
-      var parentElem = findParentElement(elem, PRODUCT_CLS);
-
-      if (parentElem && !parentElem.classList.contains(PRODUCT_DISABLED_CLS)) {
-        var elemProductAction = parentElem.querySelector('.' + PRODUCT_ACTION_CLS);
-        var elemProductDesc = parentElem.querySelector('.' + PRODUCT_DESC_CLS);
-        var content = elemProductAction.innerHTML;
-
-        elemProductAction.innerHTML = elemProductAction.dataset.text;
-        elemProductAction.dataset.text = content;
-        parentElem.classList.toggle(PRODUCT_SELECTED_CLS);
-
-        if (elemProductDesc.dataset.text) {
-          elemProductDesc.textContent = elemProductDesc.dataset.text;
-        }
-
-        elemProductDesc.dataset.text = elemProductDesc.textContent;
-
-        if (parentElem.classList.contains(PRODUCT_SELECTED_HVR_CLS)) {
-          parentElem.classList.remove(PRODUCT_SELECTED_HVR_CLS);
-        }
+      if (parentElem && !parentElem.classList.contains(PRODUCT_DISABLED)) {
+        parentElem.classList.toggle(PRODUCT_SELECTED);
+        parentElem.classList.remove(PRODUCT_SELECTED_HVR);
       }
     }
   }
@@ -58,16 +34,12 @@
   function elementMouseOver(event) {
     var elem = event.target;
 
-    if (elem !== this && !elem.classList.contains(PRODUCT_ACTION_CLS)) {
-      var parentElem = findParentElement(elem, PRODUCT_CLS);
+    if (!elem.classList.contains(PRODUCT_ACTION) && !elem.classList.contains(PRODUCT_CONSIST)) {
+      var parentElem = findParentElement(elem, PRODUCT);
 
-      if (parentElem && parentElem.classList.contains(PRODUCT_SELECTED_CLS)) {
-        var elemProductDesc = parentElem.querySelector('.' + PRODUCT_DESC_CLS);
-
-        elemProductDesc.textContent = PRODUCT_DESC_TEXT;
-
-        if (!parentElem.classList.contains(PRODUCT_SELECTED_HVR_CLS))  {
-          parentElem.classList.add(PRODUCT_SELECTED_HVR_CLS);
+      if (parentElem && parentElem.classList.contains(PRODUCT_SELECTED)) {
+        if (!parentElem.classList.contains(PRODUCT_SELECTED_HVR)) {
+          parentElem.classList.add(PRODUCT_SELECTED_HVR);
         }
       }
     }
@@ -76,31 +48,25 @@
   function elementMouseOut(event) {
     var elem = event.target;
 
-    if (elem !== this && !elem.classList.contains(PRODUCT_ACTION_CLS)) {
-      var parentElem = findParentElement(elem, PRODUCT_CLS);
+    if (!elem.classList.contains(PRODUCT_ACTION) && !elem.classList.contains(PRODUCT_CONSIST)) {
+      var parentElem = findParentElement(elem, PRODUCT);
 
-      if (parentElem && parentElem.classList.contains(PRODUCT_SELECTED_CLS)) {
-        var elemProductDesc = parentElem.querySelector('.' + PRODUCT_DESC_CLS);
-
-        elemProductDesc.textContent = elemProductDesc.dataset.text;
-
-        if (parentElem.classList.contains(PRODUCT_SELECTED_HVR_CLS)) {
-          parentElem.classList.remove(PRODUCT_SELECTED_HVR_CLS);
+      if (parentElem && parentElem.classList.contains(PRODUCT_SELECTED)) {
+        if (parentElem.classList.contains(PRODUCT_SELECTED_HVR)) {
+          parentElem.classList.remove(PRODUCT_SELECTED_HVR);
         }
       }
     }
   }
 
-  function findParentElement(element, parentClass) {
-    var parentElem = element.parentNode;
-
-    if (element.classList.contains(parentClass)) {
-      return element;
-    } else {
-      while (!parentElem.classList.contains(parentClass)) {
-        parentElem = parentElem.parentNode;
+  function findParentElement(element, className) {
+    while (element !== document.body) {
+      if (element.classList.contains(className)) {
+        return element;
       }
-      return parentElem;
+      element = element.parentNode;
     }
+
+    return null;
   }
 })();

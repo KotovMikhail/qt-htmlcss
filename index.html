@@ -10,21 +10,21 @@
 <body class="page">
   <div class="page__promo-wrapper"> <!-- Для IE 11 https://github.com/philipwalton/flexbugs#flexbug-3 -->
     <section class="promo">
+      <h2 class="visually-hidden">Еда для котов</h2>
+
       <div class="promo__content">
-        <header class="promo__header">
-          <h2 class="promo__title">Ты сегодня покормил кота?</h2>
-        </header>
+        <p class="promo__slogan">Ты сегодня покормил кота?</p>
 
         <div class="promo__products-wrapper">
           <article class="product promo__product">
             <div class="product__content-wrapper">
               <div class="product__content">
-                <p class="product__desc" data-text>Сказочное заморское яство</p>
+                <p class="product__slogan">Сказочное заморское яство</p>
+                <p class="product__slogan product__slogan--cancel">Котэ не одобряет?</p>
 
-                <h1 class="product__title">Нямушка</h1>
-                <p class="product__type">с фуа-гра</p>
+                <h2 class="product__title">Нямушка <span class="product__type">с фуа-гра</span></h2>
 
-                <p class="product__text"><span class="product__number">10</span> порций</p>
+                <p class="product__text"><b class="product__number">10</b> порций</p>
                 <p class="product__text">мышь в подарок</p>
               </div>
 
@@ -34,19 +34,23 @@
               </div>
             </div>
 
-            <p class="product__action" data-text="Печень утки разварная с артишоками.">Чего сидишь? Порадуй котэ, <a class="product__link" href="#">купи.</a></p>
+            <footer class="product__footer">
+              <p class="product__text product__text--action">Чего сидишь? Порадуй котэ, <span class="product__buy">купи.</span></p>
+              <p class="product__text product__text--consist">Печень утки разварная с артишоками.</p>
+              <p class="product__text product__text--unavailable">Печалька, с фуа-гра закончился.</p>
+            </footer>
           </article>
 
           <article class="product promo__product">
             <div class="product__content-wrapper">
               <div class="product__content">
-                <p class="product__desc" data-text>Сказочное заморское яство</p>
+                <p class="product__slogan">Сказочное заморское яство</p>
+                <p class="product__slogan product__slogan--cancel">Котэ не одобряет?</p>
 
-                <h1 class="product__title">Нямушка</h1>
-                <p class="product__type">с рыбой</p>
+                <h2 class="product__title">Нямушка <span class="product__type">с рыбой</span></h2>
 
-                <p class="product__text"><span class="product__number">40</span> порций</p>
-                <p class="product__text"><span class="product__number">2</span> мыши в подарок</p>
+                <p class="product__text"><b class="product__number">40</b> порций</p>
+                <p class="product__text"><b class="product__number">2</b> мыши в подарок</p>
               </div>
 
               <div class="product__weight">
@@ -55,19 +59,23 @@
               </div>
             </div>
 
-            <p class="product__action" data-text="Головы щучьи с чесноком да свежайшая сёмгушка.">Чего сидишь? Порадуй котэ, <a class="product__link" href="#">купи.</a></p>
+            <footer class="product__footer">
+              <p class="product__text product__text--action">Чего сидишь? Порадуй котэ, <span class="product__buy">купи.</span></p>
+              <p class="product__text product__text--consist">Головы щучьи с чесноком да свежайшая сёмгушка.</p>
+              <p class="product__text product__text--unavailable">Печалька, с рыбой закончился.</p>
+            </footer>
           </article>
 
           <article class="product promo__product product--disabled">
             <div class="product__content-wrapper">
               <div class="product__content">
-                <p class="product__desc" data-text>Сказочное заморское яство</p>
+                <p class="product__slogan">Сказочное заморское яство</p>
+                <p class="product__slogan product__slogan--cancel">Котэ не одобряет?</p>
 
-                <h1 class="product__title">Нямушка</h1>
-                <p class="product__type">с курой</p>
+                <h2 class="product__title">Нямушка <span class="product__type">с курой</span></h2>
 
-                <p class="product__text"><span class="product__number">100</span> порций</p>
-                <p class="product__text"><span class="product__number">5</span> мышей в подарок</p>
+                <p class="product__text"><b class="product__number">100</b> порций</p>
+                <p class="product__text"><b class="product__number">5</b> мышей в подарок</p>
                 <p class="product__text">заказчик доволен</p>
               </div>
 
@@ -77,7 +85,11 @@
               </div>
             </div>
 
-            <p class="product__action" data-text="Филе из цыплят с трюфелями в бульоне.">Чего сидишь? Порадуй котэ, <a class="product__link" href="#">купи.</a></p>
+            <footer class="product__footer">
+              <p class="product__text product__text--action">Чего сидишь? Порадуй котэ, <span class="product__buy">купи.</span></p>
+              <p class="product__text product__text--consist">Филе из цыплят с трюфелями в бульоне.</p>
+              <p class="product__text product__text--unavailable">Печалька, с курой закончился.</p>
+            </footer>
           </article>
         </div>
 
@@ -85,6 +97,6 @@
     </section>
   </div>
 
-  <script src="js/index.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
